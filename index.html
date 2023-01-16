@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Maluca</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+
+
+    <div id="calNormal" class="form-control">
+        <p class="display-1"> Calculadora</p>
+        <hr>
+
+        <div id="calculadoraApp" class="row md-1 form-control offset-5 text-center" style="width: 20%; border: 1px solid lightblue">
+            <div class="row md-1">
+                <input id="contaMath" class="form control form-control-lg" type="text" style="border:1px solid lightblue">
+            </div>
+            
+            <div class="row md-1">
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="1">1</button>
+                </div>
+
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="2">2</button>
+                </div>
+                    
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="3">3</button>
+                </div>
+
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="+">+</button>
+                </div>
+            </div>
+            
+
+            <div class="row md-1">
+
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="4">4</button>
+                </div>
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="5">5</button>
+                </div>
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="6">6</button>
+                </div>
+
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="-">-</button>
+                </div>
+            </div>
+
+            <div class="row md-1">
+
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="7">7</button>
+                </div>
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg"  value="8">8</button>
+                </div>
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="9">9</button>
+                </div>
+
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="*">*</button>
+                </div>
+            </div>
+            
+            <div class="row md-1">
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="0">0</button>
+                </div>
+                <div class="col g-1">
+                    <button type="button" class="btn btn-primary btn-lg" onclick="resolverOP()"> = </button>
+                </div>
+                <div class="col g-1">
+                    <button onclick="teclando(this.value);" type="button" class="btn btn-primary btn-lg" value="/">/</button>
+                </div>
+            </div>
+
+            <div class="row md-1">
+                <div class="col g-1">
+                    <button id="btnCalculadoraMaluca" type="button" class="btn btn-success btn-lg">Calculadora Maluca</button>
+                </div>
+            </div>
+            
+        </div>
+
+
+
+    </div>
+
+    <div id="calMaluca" class="form control">
+        <p class="display-1"> Calculadora Maluca</p>
+        <hr>
+
+        <div class="row offset-4">
+            <div class="col md-1">
+                
+                <div class="row">
+                    <div class="row md-1">
+                        <p class="h5">Questão: </p>
+                        <p id="questao"  class="h5"> QQQQQQ</p>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col md-1">
+                        <input id="respostinha" class="form control form-control-sm" type="text" placeholder="Resposta">
+                        <button id="respondendo" type="button" class="btn btn-primary btn-sm"  value="*">Responder</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p class="h5">Tempo Restante:</p>
+                    <p id="mostraTimer" class="h4"></p>
+                </div>
+                
+            </div>
+
+        </div>
+
+        <div class="row offset-4">
+            <p id="registroPontos" class="display-6"> PONTOS: </p>
+        </div>
+
+
+
+        <button id="btnVoltar" type="button" class="btn btn-danger btn-lg">Voltar</button>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="teste.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
