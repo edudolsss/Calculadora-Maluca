@@ -1,1 +1,4 @@
-fetch('https://viacep.com.br/ws/01001000/json/').then(() => {})
+const op = "(2*4) + 2"
+const a = eval(op)
+
+console.log(a)
