@@ -13,11 +13,13 @@ function teclando(tecla){
     operacao.value += tecla
 }
 
+
 //Função que troca de calculadora comum, para calculadora maluca.
 function mudarCalculadora(){
     if(nav == "none"){
         document.getElementById('calNormal').style.display = "none"
         nav = document.getElementById('calMaluca').style.display = "block"
+        document.getElementById('mostrarVidas').innerHTML = vidas
         ativarTimer()
     }
     else{
@@ -30,6 +32,8 @@ function mudarCalculadora(){
         nav = document.getElementById('calMaluca').style.display = "none"
         document.getElementById('calNormal').style.display = "block"
         clearTimeout(timerVar)
+        window.location.reload()
+        
     }
 }
 
@@ -45,6 +49,44 @@ function resolverOP(){
     setTimeout(function(){
         document.getElementById('contaMath').value = ""
     },3000)
+}
+
+// Conjunto de Funções que resolvem operações diversas.
+
+//FATORIAL
+function fatorial(){
+
+    const valor1 = parseInt(document.getElementById('contaMath').value)
+    let resultado =1
+    for (var i =1; i<=valor1;i++){
+        resultado *= i
+    }
+    document.getElementById('contaMath').value = resultado
+
+    setTimeout(function(){
+        document.getElementById('contaMath').value = ""
+    },3000)
+}
+
+// 10 elevado a X
+function dezExpo(){
+    const resultado = 10**numero
+}
+// Modulo
+function modulo(){
+    const resultado = (valor1%valor2)
+}
+//Raiz Quadrada
+function raizQ(valor1){
+    const resultado = Math.sqrt(numero)
+}
+// Exponenciação
+function exponenciacao(){
+    const resultado = valor1**valor2
+}
+// X elevado a 2
+function xAoQuadrado(valor1){
+    const resultado = valor1**2
 }
 
 //Variáveis de controle.
@@ -118,12 +160,25 @@ function responder(){
         count = 1
         ativarTimer()
 
-        const p = document.createElement('p')
-        p.innerHTML = `<p> Operação: ${questaoAlvo}  Resultado: ${resultado} Reposta: ${resposta}</p>`
-        document.getElementById('acertos').appendChild(p)
+        // const option = document.createElement('option')
+        // option.innerHTML = `<option"> Operação: ${questaoAlvo}  Resultado: ${resultado} Reposta: ${resposta}</option>`
+        // document.getElementById('acertosLista').appendChild(option)
+
+        const tabelaAcertos = document.getElementById('tabelaAcertos')
+        var quantidadeLinhas = tabelaAcertos.rows.lenght
+        var linha = tabelaAcertos.insertRow(quantidadeLinhas)
+
+        var cellOperacao = linha.insertCell(0)
+        var cellResultado = linha.insertCell(1)
+        var cellResposta = linha.insertCell(2)
+
+        cellOperacao.innerHTML = questaoAlvo
+        cellResultado.innerHTML = resultado.toFixed(2)
+        cellResposta.innerHTML = resposta
+
         var resposta = document.getElementById('respostinha').value = ""
 
-
+        document.getElementById('mostrarVidas').innerHTML = vidas
 
     }
     else if(resultado != resposta){
@@ -142,10 +197,24 @@ function responder(){
             regPoint = document.getElementById('registroPontos').style.display = "block"
             clearTimeout(timerVar)
         }
-        const p = document.createElement('p')
-        p.innerHTML = `<p> Operação: ${questaoAlvo}  Resultado: ${resultado} Reposta: ${resposta}</p>`
-        document.getElementById('erros').appendChild(p)
+        // const option = document.createElement('option')
+        // option.innerHTML = `<option> Operação: ${questaoAlvo}  Resultado: ${resultado} Reposta: ${resposta}</option>`
+        // document.getElementById('errosLista').appendChild(option)
+
+        const tabelaAcertos = document.getElementById('tabelaErros')
+        var quantidadeLinhas = tabelaAcertos.rows.lenght
+        var linha = tabelaAcertos.insertRow(quantidadeLinhas)
+
+        var cellOperacao = linha.insertCell(0)
+        var cellResultado = linha.insertCell(1)
+        var cellResposta = linha.insertCell(2)
+
+        cellOperacao.innerHTML = questaoAlvo
+        cellResultado.innerHTML = resultado.toFixed(2)
+        cellResposta.innerHTML = resposta
 
         var resposta = document.getElementById('respostinha').value = ""
+
+        document.getElementById('mostrarVidas').innerHTML = vidas
     }
 }

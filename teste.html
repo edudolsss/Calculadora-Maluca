@@ -5,47 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+
 </head>
 <body>
-
-
     <style>
-        #erros {
-            background-color:lightgreen;
+        #areaTable{
+            overflow-y: scroll;
+            max-height: 100px;
         }
-        #acertos{
-            background-color: lightcoral;
+        #tabela{
+            border: 1px solid gray;
+            background-color: aqua;
+
+            position: relative;
+            padding-top: 10px;
+            font-size: 25px;
+        }
+        th{
+            position: sticky;
+            padding-bottom: 10px;
         }
     </style>
-    <table id="acertos" border="1">
-        <tr>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Sexo</th>
-        </tr>
 
-        <tr>
-            <td>Eduardo</td>
-            <td>25</td>
-            <td>Masculino</td>
-        </tr>
-        
-    </table>
-    <br>
 
-    <table id="erros" border="1">
-        <tr>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Sexo</th>
-        </tr>
+    <div id="areaTable">
+        <table id="tabela">
+            <tr>
+                <td> Eduardo </td>
+                <td> 25 Anos </td>
+                <td> Masculino </td>
+            </tr>
+            <tr>
+                <td> Eduardo </td>
+                <td> 25 Anos </td>
+                <td> Masculino </td>
+            </tr>
+            <tr>
+                <td> Eduardo </td>
+                <td> 25 Anos </td>
+                <td> Masculino </td>
+            </tr>
+            <tr>
+                <td> Eduardo </td>
+                <td> 25 Anos </td>
+                <td> Masculino </td>
+            </tr>
+            <tr>
+                <td> Eduardo </td>
+                <td> 25 Anos </td>
+                <td> Masculino </td>
+            </tr>
+        </table>
+    </div>
 
-        <tr>
-            <td>Eduardo</td>
-            <td>25</td>
-            <td>Masculino</td>
-        </tr>
-        
-    </table>
 </body>
 </html>
