@@ -1,4 +1,3 @@
-const op = "(2*4) + 2"
-const a = eval(op)
 
+const a = Math.sqrt(25)
 console.log(a)
