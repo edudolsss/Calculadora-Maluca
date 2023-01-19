@@ -5,60 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-
-
 </head>
 <body>
-    <style>
-        #areaTable{
-            overflow-y: scroll;
-            max-height: 100px;
+    
+
+
+    <!-- <input id="nome" type="text" disabled> -->
+    <script>
+
+        // var nomes = ['Eduardo','Josenildo','Silvania','Fernanda','Caio','Felipe']
+        // document.getElementById('nome').value = "Eduardo"
+
+        // for(var i = 0; i<(nomes.length); i++){
+        //     setTimeout(function(){
+        //         document.getElementById('nome').value = nomes[i]
+        //     },5000)
+        //     console.log(nomes[i])
+        // }
+        var nomes = ["Eduardo","Josenildo","Fernanda","Silvania"]
+        function abrir(a){
+            console.log(nomes[a])
         }
-        #tabela{
-            border: 1px solid gray;
-            background-color: aqua;
-
-            position: relative;
-            padding-top: 10px;
-            font-size: 25px;
+        for(var i =0; i<(nomes.length); i++){
+            
+            setTimeout(function(){abrir(i)},5000)
         }
-        th{
-            position: sticky;
-            padding-bottom: 10px;
-        }
-    </style>
+        
 
 
-    <div id="areaTable">
-        <table id="tabela">
-            <tr>
-                <td> Eduardo </td>
-                <td> 25 Anos </td>
-                <td> Masculino </td>
-            </tr>
-            <tr>
-                <td> Eduardo </td>
-                <td> 25 Anos </td>
-                <td> Masculino </td>
-            </tr>
-            <tr>
-                <td> Eduardo </td>
-                <td> 25 Anos </td>
-                <td> Masculino </td>
-            </tr>
-            <tr>
-                <td> Eduardo </td>
-                <td> 25 Anos </td>
-                <td> Masculino </td>
-            </tr>
-            <tr>
-                <td> Eduardo </td>
-                <td> 25 Anos </td>
-                <td> Masculino </td>
-            </tr>
-        </table>
-    </div>
 
+    </script>
 </body>
 </html>
