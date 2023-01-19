@@ -1,3 +1,3 @@
+const op = "0-5"
 
-const a = Math.sqrt(25)
-console.log(a)
+console.log(eval(op))

@@ -1,24 +1,24 @@
 // Definindo visão de elementos.
-let nav = document.getElementById('calMaluca').style.display = "none"
+let nav1 = document.getElementById('area1').style.display = "none"
+let nav2 = document.getElementById('area2').style.display = "none"
 let regPoint = document.getElementById('registroPontos').style.display = "none"
 
 // Conjunto de eventos ouvintes, por click.
 document.getElementById('btnCalculadoraMaluca').addEventListener('click',mudarCalculadora)
-document.getElementById('btnVoltar').addEventListener('click',mudarCalculadora)
 document.getElementById('respondendo').addEventListener('click',responder)
 
-//Função que monta a operação matemática na aplicação.
+// Função que monta a operação matemática na aplicação.
 function teclando(tecla){
     let operacao = document.getElementById('contaMath')
     operacao.value += tecla
 }
 
-
-//Função que troca de calculadora comum, para calculadora maluca.
+// Função que troca de calculadora comum, para calculadora maluca.
 function mudarCalculadora(){
-    if(nav == "none"){
-        document.getElementById('calNormal').style.display = "none"
-        nav = document.getElementById('calMaluca').style.display = "block"
+    if(nav1 == "none" && nav2 == "none"){
+        // document.getElementById('calNormal').style.display = "none"
+        nav1 = document.getElementById('area1').style.display = "block"
+        nav1 = document.getElementById('area2').style.display = "block"
         document.getElementById('mostrarVidas').innerHTML = vidas
         ativarTimer()
     }
@@ -33,7 +33,6 @@ function mudarCalculadora(){
         document.getElementById('calNormal').style.display = "block"
         clearTimeout(timerVar)
         window.location.reload()
-        
     }
 }
 
@@ -43,7 +42,7 @@ function resolverOP(){
 
     const resultado = eval(`${opAlvo}`)
 
-    console.log(resultado)
+    //console.log(resultado)
 
     document.getElementById('contaMath').value = resultado.toFixed(8)
     setTimeout(function(){
@@ -52,10 +51,8 @@ function resolverOP(){
 }
 
 // Conjunto de Funções que resolvem operações diversas.
-
-//FATORIAL
+// Fatorial
 function fatorial(){
-
     const valor1 = parseInt(document.getElementById('contaMath').value)
     let resultado =1
     for (var i =1; i<=valor1;i++){
@@ -70,33 +67,45 @@ function fatorial(){
 
 // 10 elevado a X
 function dezExpo(){
-    const resultado = 10**numero
-}
-// Modulo
-function modulo(){
-    const resultado = (valor1%valor2)
-}
-//Raiz Quadrada
-function raizQ(valor1){
-    const resultado = Math.sqrt(numero)
-}
-// Exponenciação
-function exponenciacao(){
-    const resultado = valor1**valor2
-}
-// X elevado a 2
-function xAoQuadrado(valor1){
-    const resultado = valor1**2
+    const valor1 = parseInt(document.getElementById('contaMath').value)
+    const resultado = 10**valor1
+    document.getElementById('contaMath').value = resultado
+
+    setTimeout(function(){
+        document.getElementById('contaMath').value = ""
+    },3000)
 }
 
-//Variáveis de controle.
+//Raiz Quadrada
+function raizQ(){
+    const valor1 = parseInt(document.getElementById('contaMath').value)
+    const resultado = Math.sqrt(valor1)
+    document.getElementById('contaMath').value = resultado
+
+    setTimeout(function(){
+        document.getElementById('contaMath').value = ""
+    },3000)
+}
+
+// X (-1)
+function inver(){
+    const valor1 = parseInt(document.getElementById('contaMath').value)
+    const resultado = valor1 * (-1)
+    document.getElementById('contaMath').value = resultado
+
+    setTimeout(function(){
+        document.getElementById('contaMath').value = ""
+    },3000)
+}
+
+// Variáveis de controle.
 let numeroDeQuestoes = 20
 let nivel = 10
 var vidas = 3
 var count
 let timerVar
 
-//Ativar o timer e faz o texto de operação supresa ser atualizado, toda vez que o timer chegar a 0.
+// Ativar o timer e faz o texto de operação supresa ser atualizado, toda vez que o timer chegar a 0.
 function ativarTimer(){
     criarOP(nivel)
     count = 180
@@ -121,7 +130,7 @@ function ativarTimer(){
     start()
 }
 
-//Função que cria a operação de forma randômica.
+// Função que cria a operação de forma randômica.
 function criarOP(nivel){
     const ops = ['+','-','*','/']
     const valor1 = Math.floor(Math.random() * nivel)
@@ -138,15 +147,15 @@ let pontos = 0
 function responder(){
     let questaoAlvo = document.getElementById('questao').innerHTML
     var resposta = document.getElementById('respostinha').value
-    let resultado = Math.abs(eval(`${questaoAlvo}`))
+    let resultado = eval(`${questaoAlvo}`)
 
     if(resultado == resposta){
         pontos += 1
-        console.log("Resultado:" , resultado)
-        console.log("Resposta:", resposta)
-        console.log("Nível:", nivel)
-        console.log("Pontos:", pontos)
-        console.log("Vidas:", vidas)
+        // console.log("Resultado:" , resultado)
+        // console.log("Resposta:", resposta)
+        // console.log("Nível:", nivel)
+        // console.log("Pontos:", pontos)
+        // console.log("Vidas:", vidas)
         if(pontos >= 5 && pontos <= 10 ){
             nivel *= 10
         }
@@ -183,11 +192,11 @@ function responder(){
     }
     else if(resultado != resposta){
         vidas -= 1
-        console.log("Resultado:" , resultado)
-        console.log("Resposta: ", resposta)
-        console.log("Nível: ", nivel)
-        console.log("Pontos: ", pontos)
-        console.log("Vidas:", vidas)
+        // console.log("Resultado:" , resultado)
+        // console.log("Resposta: ", resposta)
+        // console.log("Nível: ", nivel)
+        // console.log("Pontos: ", pontos)
+        // console.log("Vidas:", vidas)
         if(vidas != 0){
             clearTimeout(timerVar)
             count = 1
